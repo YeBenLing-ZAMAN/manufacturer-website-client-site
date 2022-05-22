@@ -3,6 +3,7 @@ import Navbar from './Components/Shared/Navbar';
 import { Route, Routes } from 'react-router-dom';
 import HomePage from './Components/HomePage/HomePage';
 import NotFoundPage from './Components/Shared/NotFoundPage';
+import Footer from './Components/Shared/Footer';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="homepage" element={<HomePage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      <Footer></Footer>
     </>
   );
 }
