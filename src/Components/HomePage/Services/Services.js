@@ -3,7 +3,7 @@ import icon01 from '../../../images/servicesIcon/icon-01.png';
 
 const Services = () => {
     return (
-        <div className='grid grid-cols-1 lg:grid-cols-3'>
+        <div className='h-screen grid grid-cols-1 lg:grid-cols-3'>
             <div>
                 <div className='flex'>
                     <img src={icon01} alt="" />
