@@ -2,7 +2,7 @@ import React from 'react';
 
 const BussniessPart = ({img, cardTitle, bgClass}) => {
     return (
-        <div className={`card lg:card-side shadow-xl p-4 m-4 ${bgClass}`}>
+        <div className={`card lg:card-side shadow-xl p-4 mx-2 my-6 ${bgClass}`}>
                 <figure>
                     <img src={img} className="pt-2 pl-2" alt="Album" />
                 </figure>
