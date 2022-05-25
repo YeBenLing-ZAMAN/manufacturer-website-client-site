@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import useAdmin from '../../hooks/useAdmin';
 
 const DashboardContent = ({children}) => {
-    const admin = useAdmin();
     return (
         <div class="drawer drawer-mobile">
             <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />

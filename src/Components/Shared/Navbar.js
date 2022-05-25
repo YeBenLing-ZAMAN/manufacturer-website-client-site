@@ -36,8 +36,8 @@ const Navbar = () => {
                 <li class="dropdown dropdown-hover dropdown-end">
                     <label tabindex="0" class="btn m-1">user</label>
                     <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><Link to=''>Item 1</Link></li>
-                        <li><Link to=''>Item 2</Link></li>
+                        <li><Link to='useprofile'>Your profile</Link></li>
+                        <li><NavLink to='dashboard'>Dash Board</NavLink></li>
                     </ul>
                 </li>
             }
