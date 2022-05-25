@@ -1,7 +1,16 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+
+import { signOut } from 'firebase/auth';
+import { Link, Navigate, NavLink } from 'react-router-dom';
+import auth from '../../firebase.init';
 
 const Navbar = () => {
+    const [user] = useAuthState(auth);
+    const logout = () => {
+        signOut(auth);
+        Navigate('/');
+    };
 
     const menuItems = <>
         <li className='my-2 mx-0 lg:my-0 lg:mx-2 '><NavLink to='/home'>Home</NavLink></li>
@@ -29,15 +38,18 @@ const Navbar = () => {
                     {menuItems}
                 </ul>
             </div>
-            <div className="navbar-end">
-                <Link to='/login' className="btn btn-primary">login/signup</Link>
-            </div>
+
+            <li className="navbar-end">
+                {user ? <></> : <Link to='/login' className="btn btn-primary">login/signup</Link>}</li>
+
             {
-                <li class="dropdown dropdown-hover dropdown-end">
-                    <label tabindex="0" class="btn m-1">user</label>
+                user && <li class="dropdown dropdown-hover dropdown-end">
+                    <label tabindex="0" class="btn m-1">{user?.displayName?.split(" ")[0]} </label>
                     <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
                         <li><Link to='useprofile'>Your profile</Link></li>
                         <li><NavLink to='dashboard'>Dash Board</NavLink></li>
+                        <li><button onClick={logout} className="btn btn-ghost">Sign Out</button></li>
+
                     </ul>
                 </li>
             }
