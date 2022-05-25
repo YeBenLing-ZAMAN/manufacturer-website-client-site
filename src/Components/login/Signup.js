@@ -1,13 +1,45 @@
-import React from 'react';
+import React, { useEffect } from 'react'; import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import {useForm} from 'react-hook-form';
-import { Link } from 'react-router-dom';
-
-const onSubmit = async data => {
-    console.log(data);
-}
+import auth from '../../firebase.init';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Signup = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
+
+    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useCreateUserWithEmailAndPassword(auth);
+    const [updateProfile, updating, UpUsererror] = useUpdateProfile(auth);
+    const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/"; 
+
+    const onSubmit = async data => {
+        // console.log(data);
+        await createUserWithEmailAndPassword(data.email, data.password)
+        await updateProfile({ displayName: data.name });
+        console.log("update done", user);
+
+    }
+    
+    useEffect(() => {
+        if (gUser || user) {
+            // console.log('user', user);
+            navigate(from, { replace: true });
+        }
+    }, [gUser, user, navigate])
+
+
+    let signInError;
+    if (error || UpUsererror) {
+        signInError = <p className='text-red-500 '><small>{error?.message || gError?.message}</small></p>
+    }
+
+
 
     return (
         <div className='h-screen flex justify-center items-center'>
@@ -111,7 +143,7 @@ const Signup = () => {
                             </label>
                         </div>
 
-                      
+                      {signInError}
 
                         <input className='btn w-full max-w-xs text-white' type="submit" value="Login" />
                     </form>
