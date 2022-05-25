@@ -14,6 +14,7 @@ Build a best distubteing system over the earth!
 - REACT Tailwind
 - REACT dasiyUI 
 - REACT FORM HOOKS
+- firebase authencation 
 
 ## website live link
 [Live view]()

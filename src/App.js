@@ -1,22 +1,31 @@
 import './App.css';
-import Navbar from './Components/Shared/Navbar';
 import { Route, Routes } from 'react-router-dom';
-import HomePage from './Components/HomePage/HomePage';
-import NotFoundPage from './Components/Shared/NotFoundPage';
+import Navbar from './Components/Shared/Navbar';
+import pubilcRoutes from './Routes/PubilcRoutes';
 import Footer from './Components/Shared/Footer';
-import Login from './Components/login/Login';
-import Signup from './Components/login/Signup';
+import PrivateRoute from './Authentication/PrivateRoute';
+import PrivateRoutes from './Routes/PrivateRoutes';
+
+
 
 function App() {
   return (
     <>
-     <Navbar></Navbar>
-     <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="homepage" element={<HomePage />} />
-        <Route path="login" element={<Login />} />
-        <Route path="signup" element={<Signup />} />
-        <Route path="*" element={<NotFoundPage />} />
+      <Navbar></Navbar>
+      <Routes>
+        {
+          pubilcRoutes.map(({ path, Componet }, index) => (
+            <Route key={index} path={path} element={<Componet />} />
+          ))
+        }
+
+        <Route element={<PrivateRoute/>}>
+          {
+            PrivateRoutes.map(({path, Componet},index)=>(
+              <Route key={index} path={path} element={Componet}></Route>
+            ))
+          }
+        </Route>
       </Routes>
       <Footer></Footer>
     </>
