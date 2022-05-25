@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'; import { useCreateUserWithEmailAndPass
 import {useForm} from 'react-hook-form';
 import auth from '../../firebase.init';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Loading from '../Shared/Loading';
 
 const Signup = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -37,6 +38,10 @@ const Signup = () => {
     let signInError;
     if (error || UpUsererror) {
         signInError = <p className='text-red-500 '><small>{error?.message || gError?.message}</small></p>
+    }
+
+    if (loading || gLoading || updating) {
+        return <Loading></Loading>;
     }
 
 
