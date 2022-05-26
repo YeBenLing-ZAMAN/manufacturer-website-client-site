@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 
@@ -34,11 +35,30 @@ const ToolDetails = () => {
             useremail:user.email
         }
         //console.log(booking);
+        fetch(' http://localhost:5000/booking', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(booking)
+        })
+            .then(res => res.json())
+            .then(data => {
+
+                console.log(data);
+
+                if (data.success) {
+                    toast(`product add on your cart`)
+                } else {
+                    toast.error(`some thing is wrong try again letter`)
+                    console.log()
+                }
+            })
     }
 
     console.log(toolDetails)
     return (
-        <div className='grid grid-cols-1 lg:grid-cols-2'>
+        <div className='h-screen grid grid-cols-1 lg:grid-cols-2 justify-center items-center'>
             <div>
                 <img src={toolDetails.img} alt="" />
             </div>
