@@ -16,6 +16,8 @@ Build a best distubteing system over the earth!
 - REACT FORM HOOKS
 - firebase authencation 
 - REACT FIREBASE HOOKS
+- react-toastify
+- react-query
 
 ## website live link
 [Live view]()

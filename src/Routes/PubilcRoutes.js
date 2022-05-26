@@ -2,6 +2,7 @@ import HomePage from '../Components/HomePage/HomePage';
 import NotFoundPage from '../Components/Shared/NotFoundPage';
 import Login from '../Components/login/Login';
 import Signup from '../Components/login/Signup';
+import ToolDetails from '../Components/Tools/ToolDetails';
 
 
  const PubilcRoutes = [
@@ -9,7 +10,7 @@ import Signup from '../Components/login/Signup';
     { path: "/home", name: "home", Componet: HomePage },
     { path: "/login", name: "login", Componet: Login },
     { path: "/signup", name: "signup", Componet: Signup },
-    { path: "*", name: "Notfound", Componet: NotFoundPage }
+    { path: "*", name: "Notfound", Componet: NotFoundPage },
 ]
 
 export default PubilcRoutes;

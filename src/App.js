@@ -10,6 +10,7 @@ import AdminRoute from './Authentication/AdminRoute';
 import Blogs from './Components/Shared/Blogs';
 import Addservice from './Components/Dashboard/Addservice';
 import AddAdmin from './Components/Dashboard/AddAdmin';
+import { ToastContainer } from 'react-toastify';
 
 
 
@@ -41,6 +42,7 @@ function App() {
 
         
       </Routes>
+      <ToastContainer />
       <Footer></Footer>
     </>
   );

@@ -2,14 +2,16 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 import { signOut } from 'firebase/auth';
-import { Link, Navigate, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const Navbar = () => {
+    const navigate = useNavigate();
     const [user] = useAuthState(auth);
     const logout = () => {
         signOut(auth);
-        Navigate('/');
+        navigate('/');
+
     };
 
     const menuItems = <>
@@ -31,7 +33,7 @@ const Navbar = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <Link to='/' className="btn btn-ghost normal-case text-xl ">daisyUI</Link>
+                <Link to='/' className="btn btn-ghost normal-case text-xl ">tools-yebenling</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
@@ -46,9 +48,9 @@ const Navbar = () => {
                 user && <li class="dropdown dropdown-hover dropdown-end">
                     <label tabindex="0" class="btn m-1">{user?.displayName?.split(" ")[0]} </label>
                     <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><Link to='useprofile'>Your profile</Link></li>
-                        <li><NavLink to='dashboard'>Dash Board</NavLink></li>
-                        <li><button onClick={logout} className="btn btn-ghost">Sign Out</button></li>
+                        <li className='my-1'><NavLink to='dashboard'>Dash Board</NavLink></li>
+                        <li className='my-1'><Link to='useprofile'>Your profile</Link></li>
+                        <li className='my-1'><button onClick={logout} className="btn btn-outline btn-primary">Sign Out</button></li>
 
                     </ul>
                 </li>
