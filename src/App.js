@@ -11,6 +11,7 @@ import Blogs from './Components/Shared/Blogs';
 import Addservice from './Components/Dashboard/Addservice';
 import AddAdmin from './Components/Dashboard/AddAdmin';
 import { ToastContainer } from 'react-toastify';
+import MyBooking from './Components/Dashboard/MyBooking';
 
 
 
@@ -31,6 +32,14 @@ function App() {
               <Route key={index} path={path} element={<Componet />}></Route>
             ))
           }
+        </Route>
+
+        <Route element={<PrivateRoute/>}>
+          <Route path='/dashboard' element={<Dashboard/>}>
+            <Route path='mybooking' element={<MyBooking/>}></Route>
+            <Route path='addservice' element={<Addservice/>}></Route>
+            <Route path='addadmin' element={<AddAdmin/>}></Route>
+          </Route>
         </Route>
 
         <Route element={<AdminRoute/>}>

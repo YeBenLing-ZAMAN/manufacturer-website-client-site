@@ -32,7 +32,8 @@ const ToolDetails = () => {
         const booking = {
             product_id: id,
             quantity: data.quantity,
-            useremail:user.email
+            useremail:user.email,
+            product:toolDetails
         }
         //console.log(booking);
         fetch(' http://localhost:5000/booking', {
@@ -74,7 +75,7 @@ const ToolDetails = () => {
 
 
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <input type="number" {...register("quantity")} />
+                    <input className='border-1' type="number" {...register("quantity")} />
                     <input className='btn btn=primary' type="submit" value='prachers' />
                     {/* ekhkhane error ta ami show koramo */}
                 </form>

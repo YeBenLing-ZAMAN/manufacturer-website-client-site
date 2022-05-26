@@ -21,6 +21,7 @@ const DashboardContent = ({children}) => {
                 <label for="my-drawer-2" class="drawer-overlay"></label>
                 <ul className="menu p-4 overflow-y-auto w-48 bg-base-200 text-base-content ">
                     {/* <!-- Sidebar content here --> */}
+                    <li className='my-1'><NavLink to='/dashboard/mybooking'>My Booking</NavLink></li>
                     <li className='my-1'><NavLink to='/dashboard/addservice'>add service</NavLink></li>
                     <li className='my-1'><NavLink to='/dashboard/addadmin'>add admin</NavLink></li>
                     
