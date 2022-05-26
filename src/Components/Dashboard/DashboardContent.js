@@ -2,7 +2,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import useAdmin from '../../hooks/useAdmin';
 
-const DashboardContent = ({children}) => {
+const DashboardContent = ({ children }) => {
+    const admin = useAdmin();
     return (
         <div class="drawer drawer-mobile">
             <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
@@ -15,7 +16,7 @@ const DashboardContent = ({children}) => {
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
                 </div>
-            {children}
+                {children}
             </div>
             <div class="drawer-side">
                 <label for="my-drawer-2" class="drawer-overlay"></label>
@@ -23,8 +24,12 @@ const DashboardContent = ({children}) => {
                     {/* <!-- Sidebar content here --> */}
                     <li className='my-1'><NavLink to='/dashboard/mybooking'>My Booking</NavLink></li>
                     <li className='my-1'><NavLink to='/dashboard/addservice'>add service</NavLink></li>
-                    <li className='my-1'><NavLink to='/dashboard/addadmin'>add admin</NavLink></li>
-                    
+                    <li className='my-1'><NavLink to='/dashboard/addreview'>add Review</NavLink></li>
+                    {
+                        admin && <li className='my-1'><NavLink to='/dashboard/addadmin'>add admin</NavLink></li>
+                    }
+
+
                 </ul>
 
             </div>
