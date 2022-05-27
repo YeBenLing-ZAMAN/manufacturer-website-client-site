@@ -5,6 +5,7 @@ import { useQuery } from 'react-query';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
+import ReviewDashboard from '../Shared/ReviewDashboard';
 
 const AddReview = () => {
     const [user, loading, error] = useAuthState(auth);
@@ -12,14 +13,14 @@ const AddReview = () => {
     const { register, handleSubmit } = useForm();
 
     
-    const { data: reviews, isLoading } = useQuery('review', () => fetch(` http://localhost:5000/review?email=${user.email}`).then(res => res.json()));
+    const { data: reviews, isLoading , refetch} = useQuery('review', () => fetch(` http://localhost:5000/review?email=${user.email}`).then(res => res.json()));
 
     // console.log(reviews);
 
     const onSubmit = async data => {
         console.log(data);
         //console.log(booking);
-        fetch(' http://localhost:5000/addreview', {
+        fetch('http://localhost:5000/addreview', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -32,7 +33,8 @@ const AddReview = () => {
                 console.log(data);
 
                 if (data.success) {
-                    toast(`your review is added`)
+                    toast(`your review is added`);
+                    refetch();
                 } else {
                     toast.error(`some thing review is not added`)
                     console.log()
@@ -100,12 +102,7 @@ const AddReview = () => {
                 <h1 className='text-2xl font-bold mb-2 mx-auto text-center'>Your privous comment</h1>
                 <div className='p-4'>
                 {
-                    reviews?.map((r,index)=> <div className='my-4 p-2 border-2'>
-                        <h1>Comment : {index+1}</h1>
-                        <hr />
-                        <p className='mt-4'>{r.review}</p>
-                        <p className='mt-4'>your pervious rating : {r.rating} Star</p>
-                    </div>)
+                    reviews?.map((r,index)=> <ReviewDashboard key={r._id} index={index} r={r}></ReviewDashboard>)
                 }
                 </div>
 

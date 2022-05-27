@@ -49,7 +49,7 @@ const ToolDetails = () => {
                 console.log(data);
 
                 if (data.success) {
-                    toast(`product add on your cart`)
+                    toast(`product add on your booking list`)
                 } else {
                     toast.error(`some thing is wrong try again letter`)
                     console.log()
