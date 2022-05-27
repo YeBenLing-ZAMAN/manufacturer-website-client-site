@@ -26,7 +26,7 @@ const DashboardContent = ({ children }) => {
                     <li className='my-1'><NavLink to='/dashboard/addservice'>add service</NavLink></li>
                     <li className='my-1'><NavLink to='/dashboard/addreview'>add Review</NavLink></li>
                     {
-                        admin && <li className='my-1'><NavLink to='/dashboard/addadmin'>add admin</NavLink></li>
+                        admin && <li className='my-1'><NavLink to='/dashboard/alluser'>All User</NavLink></li>
                     }
 
 

@@ -1,3 +1,4 @@
+import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
@@ -7,21 +8,22 @@ const MyBooking = () => {
     const [user] = useAuthState(auth);
     const [products, setProducts] = useState([]);
     const navigate = useNavigate();
+    console.log(user);
     useEffect(() => {
         if (true) {
             fetch(`http://localhost:5000/booking?user=${user.email}`, {
                 method: "GET",
                 headers: {
                     //    bareer token dite hobe 
-                    // 'authorization': `Bearer ${localStorage.getItem('accesstoken')}`
+                    'authorization': `Bearer ${localStorage.getItem('accesstoken')}`
                 }
             })
                 .then(res => {
                     console.log("res", res);
                     if (res.status === 401 || res.status === 403) {
-                        // signOut(auth);
-                        // localStorage.removeItem('accesstoken');
-                        // navigate('/');
+                        signOut(auth);
+                        localStorage.removeItem('accesstoken');
+                        navigate('/');
                         console.log("problem found");
                     } else if (res.status)
                         return res.json()

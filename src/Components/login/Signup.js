@@ -3,6 +3,7 @@ import {useForm} from 'react-hook-form';
 import auth from '../../firebase.init';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../Shared/Loading';
+import useToken from '../../hooks/useToken';
 
 const Signup = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -19,6 +20,9 @@ const Signup = () => {
     const location = useLocation();
     let from = location.state?.from?.pathname || "/"; 
 
+    /* ues token */
+    const [token] = useToken(user || gUser);
+
     const onSubmit = async data => {
         // console.log(data);
         await createUserWithEmailAndPassword(data.email, data.password)
@@ -28,11 +32,11 @@ const Signup = () => {
     }
     
     useEffect(() => {
-        if (gUser || user) {
+        if (token) {
             // console.log('user', user);
             navigate(from, { replace: true });
         }
-    }, [gUser, user, navigate])
+    }, [token, from, navigate])
 
 
     let signInError;
