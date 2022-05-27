@@ -1,9 +1,13 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { NavLink } from 'react-router-dom';
+import auth from '../../firebase.init';
 import useAdmin from '../../hooks/useAdmin';
 
 const DashboardContent = ({ children }) => {
-    const admin = useAdmin();
+    const [user] = useAuthState(auth);
+    const [admin] = useAdmin(user);
+    console.log(admin);
     return (
         <div class="drawer drawer-mobile">
             <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
@@ -23,10 +27,12 @@ const DashboardContent = ({ children }) => {
                 <ul className="menu p-4 overflow-y-auto w-48 bg-base-200 text-base-content ">
                     {/* <!-- Sidebar content here --> */}
                     <li className='my-1'><NavLink to='/dashboard/mybooking'>My Booking</NavLink></li>
-                    <li className='my-1'><NavLink to='/dashboard/addservice'>add service</NavLink></li>
                     <li className='my-1'><NavLink to='/dashboard/addreview'>add Review</NavLink></li>
                     {
-                        admin && <li className='my-1'><NavLink to='/dashboard/alluser'>All User</NavLink></li>
+                        admin && <>
+                            <li className='my-1'><NavLink to='/dashboard/alluser'>All User</NavLink></li>
+                            <li className='my-1'><NavLink to='/dashboard/addservice'>add service</NavLink></li>
+                        </>
                     }
 
 
