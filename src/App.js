@@ -41,6 +41,7 @@ function App() {
 
         <Route element={<PrivateRoute/>}>
           <Route path='/dashboard' element={<Dashboard/>}>
+            <Route index element={<MyBooking/>}></Route>
             <Route path='mybooking' element={<MyBooking/>}></Route>
             <Route path='addreview' element={<AddReview/>}></Route>
             <Route path='myprofile' element={<MyProfile/>}></Route>

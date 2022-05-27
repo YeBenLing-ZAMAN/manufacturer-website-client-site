@@ -75,8 +75,13 @@ const AddReview = () => {
                             <span className="label-text">Review</span>
                         </label>
 
-                        <input type="textarea" className="input input-bordered w-full max-w-xs" name="review" {...register('review')} required />
-
+                        {/* <input type="textarea" className="input input-bordered w-full max-w-xs" name="review" {...register('review')} required /> */}
+                        <textarea className="my-2 textarea textarea-success w-full max-w-full" placeholder="type your comment" {...register("review", {
+                            required: {
+                                value: true,
+                                message: 'your revirews is Required'
+                            }
+                        })} required></textarea>
                     </div>
 
                     <div className="form-control w-full max-w-xs">

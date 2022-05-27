@@ -1,8 +1,16 @@
 import React from 'react';
 import contactBGI from '../../images/contactus/contactustusBGI.jpg';
 import contactside from '../../images/contactus/contactussidephoto.jpg';
+import { useForm } from 'react-hook-form';
 
 const ContactsUs = () => {
+    const { register, formState: { errors }, handleSubmit, reset } = useForm();
+
+    const onSubmit = async data => {
+        console.log(data);
+    }
+
+
     return (
         <div style={{
             background: `url(${contactBGI})`,
@@ -16,11 +24,33 @@ const ContactsUs = () => {
                 <p className='text-5xl text-white text-center'>Stay connected with us</p>
             </div>
             <div className='flex flex-col w-full lg:w-1/2'>
-                <input type="text" placeholder="Email Address" className="my-2 input input-bordered input-success w-full max-w-full" />
-                <input type="text" placeholder="Mobile Numebr" className="my-2 input input-bordered input-success w-full max-w-full" />
-                <input type="text" placeholder="Subject" className="my-2 input input-bordered input-success w-full max-w-full" />
-                <textarea className="my-2 textarea textarea-success" placeholder="Your Message"></textarea>
-                <input className='btn btn-primary w-full	' type="submit" value="Submit" />
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <input type="text" placeholder="Email Address" className="my-2 input input-bordered input-success w-full max-w-full"  {...register("email", {
+                            required: {
+                                value: true,
+                                message: 'email is Required'
+                            }
+                        })} />
+                    <input type="text" placeholder="Mobile Numebr" className="my-2 input input-bordered input-success w-full max-w-full" {...register("mobile", {
+                            required: {
+                                value: true,
+                                message: 'mobile is Required'
+                            }
+                        })}/>
+                    <input type="text" placeholder="Subject" className="my-2 input input-bordered input-success w-full max-w-full" {...register("subject", {
+                            required: {
+                                value: true,
+                                message: 'subject is Required'
+                            }
+                        })}/>
+                    <textarea className="my-2 textarea textarea-success w-full max-w-full" placeholder="Your Message" {...register("message", {
+                            required: {
+                                value: true,
+                                message: 'your message  is Required'
+                            }
+                        })}></textarea>
+                    <input className='btn btn-primary w-full' type="submit" value="Submit" />
+                </form>
             </div>
         </div>
     );
