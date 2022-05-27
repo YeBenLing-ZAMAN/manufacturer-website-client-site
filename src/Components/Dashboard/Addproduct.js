@@ -20,8 +20,26 @@ const Addproduct = () => {
 
 
         /* post request ta handle  korte hobe  */
+        fetch(` http://localhost:5000/addproduct`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('accesstoken')}`
+            },
+            body: JSON.stringify(productData)
+        })
+            .then(res => res.json())
+            .then(inserted => {
+                if (inserted.insertedId) {
+                    toast.success('product added successfully');
+                    setImageURL("");
+                    reset();
+                } else {
+                    toast.error("Failed to Add product");
+                }
+                console.log("productDetails : ", inserted)
+            })
 
-        setImageURL("");
     }
 
 
@@ -43,7 +61,7 @@ const Addproduct = () => {
             .then(res => res.json())
             .then(data => {
                 //console.log(data);
-                //console.log('hardcodeurl',data.data.display_url);
+                console.log('hardcodeurl', data.data.display_url);
                 setImageURL(data.data.display_url);
                 setLoading(false);
 
