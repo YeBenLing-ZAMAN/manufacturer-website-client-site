@@ -1,19 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Tool = ({ tool }) => {
-    const { img, quantity, price, name, _id } = tool;
+const Tool = ({ tool, refetch }) => {
+    console.log(tool)
+     const {  Code, brand, details, image,min_quantity,name,price,quantity,_id } = tool;
     return (
-        <div className=''>
+        <div className='w-96 bg-base-100 shadow-xl'>
             <figure>
-                <img src={img} className="pt-2 pl-2" alt="Album" />
+                <img width={400} height={400} src={image} className="p-2" alt="Album" />
             </figure>
-            <div className="card-body">
+            <div className="card-body px-8 pt-2">
                 <h2 className="card-title text-2xl font-bold">{name}</h2>
                 <hr />
-                <p>brand: power</p>
-                <p>product code: { }</p>
+                <p>brand: {brand}</p>
+                <p>product code: { Code}</p>
+                <hr />
+                <hr />
                 <p>Availability: {quantity} prices</p>
+                <p>Minimun Quantity of oder: {min_quantity} prices</p>
                 <hr />
                 <p>price: {price}/perPrices</p>
                 <Link to={`/tool/${_id}`} className='btn btn-primary'>details</Link>

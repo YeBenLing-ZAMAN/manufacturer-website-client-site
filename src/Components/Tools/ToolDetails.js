@@ -12,7 +12,8 @@ const ToolDetails = () => {
     const [loading, setLoading] = useState(false);
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const [user] = useAuthState(auth);
- 
+    console.log(toolDetails)
+    const { Code, brand, details, image, min_quantity, name, price, quantity, _id } = toolDetails;
 
     useEffect(() => {
         setLoading(true);
@@ -28,57 +29,75 @@ const ToolDetails = () => {
     }
 
     const onSubmit = async data => {
-        // console.log(data.quantity);
-        const booking = {
-            product_id: id,
-            quantity: data.quantity,
-            useremail:user.email,
-            product:toolDetails
-        }
-        //console.log(booking);
-        fetch(' http://localhost:5000/booking', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(booking)
-        })
-            .then(res => res.json())
-            .then(data => {
+        console.log(data.quantity);
+        console.log(min_quantity);
 
-                console.log(data);
-
-                if (data.success) {
-                    toast(`product add on your booking list`)
-                } else {
-                    toast.error(`some thing is wrong try again letter`)
-                    console.log()
-                }
+        if (parseInt(data.quantity) >= parseInt(min_quantity)) {
+            const booking = {
+                product_id: id,
+                quantity: data.quantity,
+                useremail: user.email,
+                product: toolDetails
+            }
+            //console.log(booking);
+            fetch(' http://localhost:5000/booking', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(booking)
             })
+                .then(res => res.json())
+                .then(data => {
+
+                    console.log(data);
+
+                    if (data.success) {
+                        toast(`product add on your booking list`)
+                    } else {
+                        toast.error(`some thing is wrong try again letter`)
+                        console.log()
+                    }
+                })
+        }else{
+            toast.error(`product order Quantity is ${data.quantity} it's less than order minimun quantity ${min_quantity}. so, you should order more`);
+        }
+
     }
 
-    console.log(toolDetails)
+
     return (
-        <div className='h-screen grid grid-cols-1 lg:grid-cols-2 justify-center items-center'>
+        <div className='h-screen grid grid-cols-1 lg:grid-cols-2 justify-items-center items-center'>
             <div>
-                <img src={toolDetails.img} alt="" />
+                <img src={image} alt="" />
             </div>
             <div>
-                <h3 className='text-xl'>{toolDetails.name}</h3>
+                <h3 className='text-xl'>{name}</h3>
                 <hr />
-                <p>Brand:</p>
-                <p>Supplier: {toolDetails.supplier}</p>
-                <p>product code:{toolDetails._id}</p>
-                <p>price: {toolDetails.price}</p>
-                <p>Avaible Quantity: {toolDetails.quantity}</p>
+                <p>brand : {brand}</p>
+                <p>product code : {Code}</p>
+                <hr />
+                <p>Details</p>
+                <p>{details}</p>
+                <hr />
+                <p>Availability : {quantity} apiece</p>
+                <p>Minimun Quantity of order : {min_quantity} apiece</p>
+                <hr />
+                <p>price : ${price}/Apiece</p>
                 <hr />
 
-
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <input className='border-1' type="number" {...register("quantity")} />
-                    <input className='btn btn=primary' type="submit" value='prachers' />
-                    {/* ekhkhane error ta ami show koramo */}
-                </form>
+                <div className='my-10'>
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <div>
+                            <label htmlFor='buy' className="label">
+                                <span className="label-text">Quantity to Buy</span>
+                            </label>
+                        </div>
+                        <input id='' className='input input-bordered input-primary w-24' type="number" {...register("quantity")} />
+                        <input className='btn btn-primary ml-5' type="submit" value='prachers' />
+                        {/* ekhkhane error ta ami show koramo */}
+                    </form>
+                </div>
 
 
             </div>
