@@ -14,6 +14,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import MyBooking from './Components/Dashboard/MyBooking';
 import AddReview from './Components/Dashboard/AddReview';
 import Users from './Components/Dashboard/User';
+import MyProfile from './Components/Dashboard/MyProfile';
+import AllReview from './Components/Dashboard/AllReview';
 
 
 
@@ -41,6 +43,7 @@ function App() {
           <Route path='/dashboard' element={<Dashboard/>}>
             <Route path='mybooking' element={<MyBooking/>}></Route>
             <Route path='addreview' element={<AddReview/>}></Route>
+            <Route path='myprofile' element={<MyProfile/>}></Route>
           </Route>
         </Route>
 
@@ -48,6 +51,7 @@ function App() {
           <Route path='/dashboard' element={<Dashboard/>}>
             <Route path='addservice' element={<Addservice/>}></Route>
             <Route path='alluser' element={<Users/>}></Route>
+            <Route path='allreview' element={<AllReview/>}></Route>
           </Route>
         </Route>
 

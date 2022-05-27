@@ -27,11 +27,13 @@ const DashboardContent = ({ children }) => {
                 <ul className="menu p-4 overflow-y-auto w-48 bg-base-200 text-base-content ">
                     {/* <!-- Sidebar content here --> */}
                     <li className='my-1'><NavLink to='/dashboard/mybooking'>My Booking</NavLink></li>
-                    <li className='my-1'><NavLink to='/dashboard/addreview'>add Review</NavLink></li>
+                    <li className='my-1'><NavLink to='/dashboard/addreview'>My Review</NavLink></li>
+                    <li className='my-1'><NavLink to='/dashboard/myprofile'>My profile</NavLink></li>
                     {
                         admin && <>
                             <li className='my-1'><NavLink to='/dashboard/alluser'>All User</NavLink></li>
                             <li className='my-1'><NavLink to='/dashboard/addservice'>add service</NavLink></li>
+                            <li className='my-1'><NavLink to='/dashboard/allreview'>All Review</NavLink></li>
                         </>
                     }
 
