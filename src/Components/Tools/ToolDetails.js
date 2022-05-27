@@ -3,47 +3,58 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { useQuery } from 'react-query';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 
 const ToolDetails = () => {
     const { id } = useParams();
-    const [toolDetails, setDetails] = useState([]);
+    // const [toolDetails, setDetails] = useState([]);
     const [loading, setLoading] = useState(false);
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const [user] = useAuthState(auth);
-    console.log(toolDetails)
-    const { Code, brand, details, image, min_quantity, name, price, quantity, _id } = toolDetails;
+    //console.log(toolDetails)
 
-    useEffect(() => {
-        setLoading(true);
-        const url = `http://localhost:5000/tool/${id}`
-        fetch(url)
-            .then(res => res.json())
-            .then(data => setDetails(data));
-        setLoading(false);
-    }, [id])
+    const url = `http://localhost:5000/tool/${id}`;
 
-    if (loading) {
+    /*  useEffect(() => {
+         setLoading(true);
+         fetch(url)
+             .then(res => res.json())
+             .then(data => setDetails(data));
+         setLoading(false);
+     }, [id]) */
+
+    const { data: toolDetails, isLoading, refetch } = useQuery('toolDetails', () => fetch(url).then(res => res.json()));
+    // const { Code, brand, details, image, min_quantity, name, price, quantity, _id } = toolDetails;
+
+    if (isLoading) {
         return <Loading />
     }
 
     const onSubmit = async data => {
         console.log(data.quantity);
-        console.log(min_quantity);
+        console.log(toolDetails?.min_quantity);
 
-        if (parseInt(data.quantity) >= parseInt(min_quantity)) {
+        if (parseInt(data.quantity) >= parseInt(toolDetails?.min_quantity) && parseInt(data.quantity) <= parseInt(toolDetails?.quantity)) {
             const booking = {
                 product_id: id,
                 quantity: data.quantity,
                 useremail: user.email,
                 product: toolDetails
             }
+            const availabeQuantity = parseInt(toolDetails?.quantity);
+            const orderQuantity = parseInt(data?.quantity);
+            console.log("order quantity", orderQuantity);
+            console.log("avaiable quantity", availabeQuantity);
+            const updateQuantity = (availabeQuantity - orderQuantity).toString();
+
             //console.log(booking);
             fetch(' http://localhost:5000/booking', {
                 method: 'POST',
                 headers: {
-                    'content-type': 'application/json'
+                    'content-type': 'application/json',
+                    authorization: `Bearer ${localStorage.getItem('accesstoken')}`
                 },
                 body: JSON.stringify(booking)
             })
@@ -52,15 +63,38 @@ const ToolDetails = () => {
 
                     console.log(data);
 
+                    console.log(updateQuantity);
+                    console.log(typeof (updateQuantity));
+                    const UQ = {
+                        quantity: updateQuantity
+                    }
+
                     if (data.success) {
-                        toast(`product add on your booking list`)
+                        toast(`product add on your booking list`);
+                        /* send a post request for update DataBase */
+                        fetch(`http://localhost:5000/addbooking/${toolDetails._id}`, {
+                            method: 'PATCH',
+                            headers: {
+                                'content-type': 'application/json',
+                                authorization: `Bearer ${localStorage.getItem('accesstoken')}`
+                            },
+                            body: JSON.stringify(UQ)
+                        }).then(res => res.json()).then(data => {
+                            // setProcessing(false);
+                            console.log('update', data)
+                            refetch();
+                        })
+
                     } else {
-                        toast.error(`some thing is wrong try again letter`)
-                        console.log()
+                        toast.error(`some thing is wrong try again letter`);
+                        console.log();
                     }
                 })
-        }else{
-            toast.error(`product order Quantity is ${data.quantity} it's less than order minimun quantity ${min_quantity}. so, you should order more`);
+        } else if (parseInt(data.quantity) > parseInt(toolDetails?.quantity)) {
+            toast.error(`product order Quantity is ${data.quantity} it's more then available quantity ${toolDetails?.quantity}. so, you should order less`);
+        }
+        else {
+            toast.error(`product order Quantity is ${data.quantity} it's less than order minimun quantity ${toolDetails?.min_quantity}. so, you should order more`);
         }
 
     }
@@ -69,21 +103,21 @@ const ToolDetails = () => {
     return (
         <div className='h-screen grid grid-cols-1 lg:grid-cols-2 justify-items-center items-center'>
             <div>
-                <img src={image} alt="" />
+                <img src={toolDetails?.image} alt="" />
             </div>
             <div>
-                <h3 className='text-xl'>{name}</h3>
+                <h3 className='text-xl'>{toolDetails?.name}</h3>
                 <hr />
-                <p>brand : {brand}</p>
-                <p>product code : {Code}</p>
+                <p>brand : {toolDetails?.brand}</p>
+                <p>product code : {toolDetails?.Code}</p>
                 <hr />
                 <p>Details</p>
-                <p>{details}</p>
+                <p>{toolDetails?.details}</p>
                 <hr />
-                <p>Availability : {quantity} apiece</p>
-                <p>Minimun Quantity of order : {min_quantity} apiece</p>
+                <p>Availability : {toolDetails?.quantity} apiece</p>
+                <p>Minimun Quantity of order : {toolDetails?.min_quantity} apiece</p>
                 <hr />
-                <p>price : ${price}/Apiece</p>
+                <p>price : ${toolDetails?.price}/Apiece</p>
                 <hr />
 
                 <div className='my-10'>
