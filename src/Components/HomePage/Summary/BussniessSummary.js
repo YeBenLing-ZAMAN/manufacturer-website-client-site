@@ -12,10 +12,10 @@ const BussniessSummary = () => {
         <p>Try to understand user epectation</p>
         </div>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 px-3'>
-            <BussniessPart cardTitle="Opening Hours" bgClass="font-bold bg-gradient-to-r from-primary to-secondary" img={country}></BussniessPart>
-            <BussniessPart cardTitle="Our Location" bgClass="bg-accent" img={client}></BussniessPart>
-            <BussniessPart cardTitle="Contact Us" bgClass="font-bold bg-gradient-to-r from-primary to-secondary" img={project}></BussniessPart>
-            <BussniessPart cardTitle="Contact Us" bgClass="font-bold bg-gradient-to-r from-primary to-secondary" img={project}></BussniessPart>
+            <BussniessPart cardTitle="All Over World!" cardBody="you can order anywhere" bgClass="font-bold bg-gradient-to-r from-red-500 to-yellow-500" img={country}></BussniessPart>
+            <BussniessPart cardTitle="20k Client" cardBody="client satisfaction is must" bgClass="bg-gradient-to-r from-red-500 to-yellow-500 " img={client}></BussniessPart>
+            <BussniessPart cardTitle="3k" cardBody="font-bold Large project handle" bgClass="font-bold bg-gradient-to-r from-red-500 to-yellow-500" img={project}></BussniessPart>
+            <BussniessPart cardTitle="Contact Us" cardBody="if you have any qustion please submit form blow" bgClass="font-bold bg-gradient-to-r from-red-500 to-yellow-500" img={project}></BussniessPart>
         </div>
         </>
     );

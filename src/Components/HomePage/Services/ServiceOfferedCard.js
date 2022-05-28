@@ -1,14 +1,16 @@
 import React from 'react';
 
-const ServiceOfferedCard = ({img, flexDirection, textDirection}) => {
+const ServiceOfferedCard = ({ img, flexDirection, textDirection, cardBody, cardTitle }) => {
     return (
-        <div className={`flex ${flexDirection}`}>
-                    <img className='p-2' width='80px' height='80px' src={img} alt="" />
-                    <div className={`${textDirection}`}>
-                        <h2 className=' text-xl font-bold text-bule-500'>boiller</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, quas?</p>
-                    </div>
-                </div>
+        <div className={`flex ${flexDirection} mt-5`}>
+            <div className='p-5'>
+                <img src={img} width='200px' height='200px' alt="" />
+            </div>
+            <div className={`${textDirection}`}>
+                <h2 className=' text-xl font-bold text-bule-500'>{cardTitle}</h2>
+                <p>{cardBody}</p>
+            </div>
+        </div>
     );
 };
 

@@ -17,7 +17,7 @@ const Navbar = () => {
     const menuItems = <>
         <li className='my-2 mx-0 lg:my-0 lg:mx-2 '><NavLink to='/home'>Home</NavLink></li>
         <li className='my-2 mx-0 lg:my-0 lg:mx-2 '><NavLink to='/tools'>Tools</NavLink></li>
-        <li className='my-2 mx-0 lg:my-0 lg:mx-2 '><NavLink to='/review'>Reviews</NavLink></li>
+        <li className='my-2 mx-0 lg:my-0 lg:mx-2 '><NavLink to='/seereviews'>Reviews</NavLink></li>
         <li className='my-2 mx-0 lg:my-0 lg:mx-2 '><NavLink to='/contact'>Contact</NavLink></li>
         <li className='my-2 mx-0 lg:my-0 lg:mx-2 '><NavLink to='/about'>About</NavLink></li>
 
@@ -33,7 +33,7 @@ const Navbar = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <Link to='/' className="btn btn-ghost normal-case text-xl ">tools-yebenling</Link>
+                <Link to='/' className="btn btn-ghost normal-case text-xl ">Tools-yebenling</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
