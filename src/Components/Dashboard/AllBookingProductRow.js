@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const AllBookingProductRow = ({ refetch, index, info, setDeleteProduct,setDeliveryProduct }) => {
-    const { product, quantity, useremail } = info;
+    const { product, quantity, useremail} = info;
     const { Code } = product;
 
 
@@ -23,7 +23,7 @@ const AllBookingProductRow = ({ refetch, index, info, setDeleteProduct,setDelive
                 }
             </td>
             <td>
-                <label onClick={() => setDeliveryProduct(info)} for="admin-delivery-confirm-modal" class={info.paid ? "btn btn-xs btn-disabled" : "btn btn-xs btn-info"}>Padding</label>
+                <label onClick={() => setDeliveryProduct(info)} for="admin-delivery-confirm-modal" class={info.delivery ? "btn btn-xs btn-disabled" : "btn btn-xs btn-info"}>Delivery Padding</label>
             </td>
             <td>
                 <label onClick={() => setDeleteProduct(info)} for="admin-delete-confirm-modal" class={info.paid ? "btn btn-xs btn-disabled" : "btn btn-xs btn-warning"}>Cancel Order</label>

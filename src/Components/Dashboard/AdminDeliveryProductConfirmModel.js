@@ -5,33 +5,33 @@ const AdminDeliveryProductConfirmModel = ({ setDeliveryProduct, deliveryProduct,
 
 
     console.log(deliveryProduct);
-    const { product, _id , useremail,quantity} = deliveryProduct;
-    const { Code,price } = product;
+    const { product, _id, useremail, quantity } = deliveryProduct;
+    const { Code, price } = product;
 
     const handleDelivery = (_id) => {
 
-        const delivedProduct ={
+        const delivedProduct = {
             bookingId: _id,
-            useremail:useremail,
-            quantity:quantity,
-            Code:Code,
-            price:price
+            useremail: useremail,
+            quantity: quantity,
+            Code: Code,
+            price: price
         }
 
         fetch(`http://localhost:5000/updatebooking/${_id}`, {
-                method: 'PATCH',
-                headers: {
-                    'content-type': 'application/json',
-                    authorization: `Bearer ${localStorage.getItem('accesstoken')}`
-                },
-                body: JSON.stringify(delivedProduct)
-            }).then(res => res.json()).then(data => {
-                if(data.modifiedCount){
-                    toast.success(`product of ${Code} is delived`);
-                    refetch();
-                }
-            })
-            
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('accesstoken')}`
+            },
+            body: JSON.stringify(delivedProduct)
+        }).then(res => res.json()).then(data => {
+            if (data.modifiedCount) {
+                toast.success(`product of ${Code} is delived`);
+                refetch();
+            }
+        })
+
         setDeliveryProduct(null);
     }
 
