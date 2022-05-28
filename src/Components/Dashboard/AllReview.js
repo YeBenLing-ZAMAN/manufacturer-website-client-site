@@ -6,12 +6,12 @@ import AllReviewCard from './AllReviewCard';
 
 const AllReview = () => {
 
-    const { data: reviews, isLoading , refetch} = useQuery('review', () => fetch(`http://localhost:5000/allreviews`).then(res => res.json()));
+    const { data: reviews, isLoading , refetch} = useQuery('review', () => fetch(`https://shielded-earth-31322.herokuapp.com/allreviews`).then(res => res.json()));
 
 
     const onDeletebutton =(id)=>{
          // console.log('delete',id);
-        fetch(`http://localhost:5000/review/${id}`, {
+        fetch(`https://shielded-earth-31322.herokuapp.com/review/${id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accesstoken')}`

@@ -5,7 +5,7 @@ import Loading from '../Shared/Loading';
 import Tool from '../Tools/Tool';
 
 const ToolOnHomePage = () => {
-    const { data: tools, isLoading, refetch } = useQuery('tools', () => fetch(`http://localhost:5000/tools`).then(res => res.json()));
+    const { data: tools, isLoading, refetch } = useQuery('tools', () => fetch(`https://shielded-earth-31322.herokuapp.com/tools`).then(res => res.json()));
 
     if (isLoading) {
         return <Loading />

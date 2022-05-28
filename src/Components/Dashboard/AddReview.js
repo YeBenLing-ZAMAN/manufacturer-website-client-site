@@ -13,14 +13,14 @@ const AddReview = () => {
     const { register, handleSubmit } = useForm();
 
     
-    const { data: reviews, isLoading , refetch} = useQuery('review', () => fetch(` http://localhost:5000/review?email=${user.email}`).then(res => res.json()));
+    const { data: reviews, isLoading , refetch} = useQuery('review', () => fetch(` https://shielded-earth-31322.herokuapp.com/review?email=${user.email}`).then(res => res.json()));
 
     //  // console.log(reviews);
 
     const onSubmit = async data => {
          // console.log(data);
         // // console.log(booking);
-        fetch('http://localhost:5000/addreview', {
+        fetch('https://shielded-earth-31322.herokuapp.com/addreview', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

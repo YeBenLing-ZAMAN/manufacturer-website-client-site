@@ -9,7 +9,7 @@ const AllBookingProduct = () => {
     const [deletProduct, setDeleteProduct] = useState(null);
     const [deliveryProduct, setDeliveryProduct] = useState(null);
 
-    const url = `http://localhost:5000/allbooking`;
+    const url = `https://shielded-earth-31322.herokuapp.com/allbooking`;
 
     const { data: allbookinglists, isLoading, refetch } = useQuery('allbookinglists', () => fetch(url, {
         method: "GET",

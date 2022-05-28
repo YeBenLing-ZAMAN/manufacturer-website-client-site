@@ -18,7 +18,7 @@ const AdminDeliveryProductConfirmModel = ({ setDeliveryProduct, deliveryProduct,
             price: price
         }
 
-        fetch(`http://localhost:5000/updatebooking/${_id}`, {
+        fetch(`https://shielded-earth-31322.herokuapp.com/updatebooking/${_id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',

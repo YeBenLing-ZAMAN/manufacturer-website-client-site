@@ -18,7 +18,7 @@ const MyBooking = () => {
     /*   useEffect(() => {
           async function fetchMyAPI() {
               if (true) {
-                  await fetch(`http://localhost:5000/booking?user=${user.email}`, {
+                  await fetch(`https://shielded-earth-31322.herokuapp.com/booking?user=${user.email}`, {
                       method: "GET",
                       headers: {
                           //    bareer token dite hobe 
@@ -41,7 +41,7 @@ const MyBooking = () => {
           fetchMyAPI();
       }, [user]) */
 
-    const { data: products, isLoading, refetch } = useQuery(['products', email], () => fetch(`http://localhost:5000/booking?user=${email}`, {
+    const { data: products, isLoading, refetch } = useQuery(['products', email], () => fetch(`https://shielded-earth-31322.herokuapp.com/booking?user=${email}`, {
         method: "GET",
         headers: {
             authorization: `Bearer ${localStorage.getItem('accesstoken')}`

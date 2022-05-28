@@ -24,16 +24,16 @@ const Signup = () => {
     const [token] = useToken(user || gUser);
 
     const onSubmit = async data => {
-        //  // console.log(data);
+        // console.log(data);
         await createUserWithEmailAndPassword(data.email, data.password)
         await updateProfile({ displayName: data.name });
-         // console.log("update done", user);
+        console.log("update done", user);
 
     }
     
     useEffect(() => {
         if (token) {
-            //  // console.log('user', user);
+            // console.log('user', user);
             navigate(from, { replace: true });
         }
     }, [token, from, navigate])
@@ -154,9 +154,9 @@ const Signup = () => {
 
                       {signInError}
 
-                        <input className='btn w-full max-w-xs text-white' type="submit" value="Login" />
+                        <input className='btn w-full max-w-xs text-white' type="submit" value="signup" />
                     </form>
-                    <p><small>Already Have a account?<Link to='/login' className='text-primary'>signup</Link></small></p>
+                    <p><small>Already Have a account? <Link to='/login' className='text-primary'>login</Link></small></p>
                 </div>
                 <div className="divider">OR</div>
                 <button className="btn btn-accent">CONTINUE WITH GOOGLE</button>

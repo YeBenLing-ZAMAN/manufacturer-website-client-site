@@ -9,7 +9,7 @@ import Loading from '../../Shared/Loading';
 import { Link } from 'react-router-dom';
 
 const Reviews = () => {
-    const { data: reviews, isLoading, refetch } = useQuery('review', () => fetch(`http://localhost:5000/allreviews`).then(res => res.json()));
+    const { data: reviews, isLoading, refetch } = useQuery('review', () => fetch(`https://shielded-earth-31322.herokuapp.com/allreviews`).then(res => res.json()));
 
     if (isLoading) {
         <Loading />

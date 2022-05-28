@@ -7,7 +7,7 @@ import ReviewCard from '../HomePage/Reviews/ReviewCard';
 
 const SeeReview = () => {
 
-    const { data: reviews, isLoading, refetch } = useQuery('review', () => fetch(`http://localhost:5000/allreviews`).then(res => res.json()));
+    const { data: reviews, isLoading, refetch } = useQuery('review', () => fetch(`https://shielded-earth-31322.herokuapp.com/allreviews`).then(res => res.json()));
     if (isLoading) {
         <Loading />
     }

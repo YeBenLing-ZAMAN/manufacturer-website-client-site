@@ -8,7 +8,7 @@ const AdminDeleteComfirmModel = ({ deletProduct, setDeleteProduct, refetch }) =>
     const { name, Code } = product;
 
     const handleDelete = (_id) => {
-        fetch(`http://localhost:5000/bookingitmes/${_id}`, {
+        fetch(`https://shielded-earth-31322.herokuapp.com/bookingitmes/${_id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accesstoken')}`

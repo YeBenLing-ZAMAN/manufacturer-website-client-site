@@ -20,7 +20,7 @@ const Addproduct = () => {
 
 
         /* post request ta handle  korte hobe  */
-        fetch(` http://localhost:5000/addproduct`, {
+        fetch(` https://shielded-earth-31322.herokuapp.com/addproduct`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

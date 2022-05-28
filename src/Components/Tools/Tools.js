@@ -10,7 +10,7 @@ const Tools = () => {
     // useEffect(() => {
     //     setLoading(true);
 
-    //     fetch('http://localhost:5000/tools')
+    //     fetch('https://shielded-earth-31322.herokuapp.com/tools')
     //         .then((res) => res.json())
     //         .then(data => {
     //             setTools(data)
@@ -19,7 +19,7 @@ const Tools = () => {
     //         })
     // }, [])
 
-    const { data: tools, isLoading , refetch} = useQuery('tools', () => fetch(`http://localhost:5000/tools`).then(res => res.json()));
+    const { data: tools, isLoading , refetch} = useQuery('tools', () => fetch(`https://shielded-earth-31322.herokuapp.com/tools`).then(res => res.json()));
 
     if (isLoading) {
         return <Loading />

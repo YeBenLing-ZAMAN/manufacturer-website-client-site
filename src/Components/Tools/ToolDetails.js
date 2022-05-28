@@ -15,7 +15,7 @@ const ToolDetails = () => {
     const [user, loading] = useAuthState(auth);
     // // console.log(toolDetails)
 
-    const url = `http://localhost:5000/tool/${id}`;
+    const url = `https://shielded-earth-31322.herokuapp.com/tool/${id}`;
 
     /*  useEffect(() => {
          setLoading(true);
@@ -50,7 +50,7 @@ const ToolDetails = () => {
             const updateQuantity = (availabeQuantity - orderQuantity).toString();
 
             // // console.log(booking);
-            fetch(' http://localhost:5000/booking', {
+            fetch(' https://shielded-earth-31322.herokuapp.com/booking', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
@@ -72,7 +72,7 @@ const ToolDetails = () => {
                     if (data.success) {
                         toast(`product add on your booking list`);
                         /* send a post request for update DataBase */
-                        fetch(`http://localhost:5000/addbooking/${toolDetails._id}`, {
+                        fetch(`https://shielded-earth-31322.herokuapp.com/addbooking/${toolDetails._id}`, {
                             method: 'PATCH',
                             headers: {
                                 'content-type': 'application/json',

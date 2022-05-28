@@ -21,7 +21,7 @@ const CheckoutForm = ({ item }) => {
     const totalPrice= (QuantityOfProduct * priceOfProduct).toFixed(2);
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/create-payment-intent`, {
+        fetch(`https://shielded-earth-31322.herokuapp.com/create-payment-intent`, {
             method: "POST",
             headers: {
                 'content-type': 'application/json',
@@ -97,7 +97,7 @@ const CheckoutForm = ({ item }) => {
             }
 
             // backend update
-            fetch(`http://localhost:5000/booking/${_id}`, {
+            fetch(`https://shielded-earth-31322.herokuapp.com/booking/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',
