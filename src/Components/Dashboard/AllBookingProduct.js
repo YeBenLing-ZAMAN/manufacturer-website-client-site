@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../Shared/Loading';
+import AdminDeleteComfirmModel from './AdminDeleteComfirmModel';
 import AllBookingProductRow from './AllBookingProductRow';
-import MyBookingRow from './MyBookingRow';
 
 const AllBookingProduct = () => {
+    const [deletProduct, setDeleteProduct] = useState(null);
 
     const url = `http://localhost:5000/allbooking`;
 
@@ -46,18 +47,18 @@ const AllBookingProduct = () => {
                             refetch={refetch}
                             index={index}
                             info={info}
-                            // setDeleteProduct={setDeleteProduct}
+                            setDeleteProduct={setDeleteProduct}
                         ></AllBookingProductRow>)
                     }
 
                 </tbody>
             </table>
         </div>
-        {/* {deletProduct && <DeleteConfirmModal
+        {deletProduct && <AdminDeleteComfirmModel
         deletProduct={deletProduct}
         refetch={refetch}
         setDeleteProduct={setDeleteProduct}
-        ></DeleteConfirmModal>} */}
+        ></AdminDeleteComfirmModel>}
     </div>
     );
 };

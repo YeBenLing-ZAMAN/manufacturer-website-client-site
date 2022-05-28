@@ -1,11 +1,11 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 
-const DeleteConfirmModal = ({ deletProduct, setDeleteProduct, refetch }) => {
-    
+const AdminDeleteComfirmModel = ({ deletProduct, setDeleteProduct, refetch }) => {
+
     console.log(deletProduct);
-    const { product ,_id} = deletProduct;
-    const { name } = product;
+    const { product, _id } = deletProduct;
+    const { name, Code } = product;
 
     const handleDelete = (_id) => {
         fetch(`http://localhost:5000/bookingitmes/${_id}`, {
@@ -27,19 +27,20 @@ const DeleteConfirmModal = ({ deletProduct, setDeleteProduct, refetch }) => {
     }
     return (
         <div>
-            <input type="checkbox" id="delete-confirm-modal" class="modal-toggle" />
+            <h1 className='text-xl font-bold text-center'>Admin your are sure to cancel this product</h1>
+            <input type="checkbox" id="admin-delete-confirm-modal" class="modal-toggle" />
             <div class="modal modal-bottom sm:modal-middle">
                 <div class="modal-box">
-                    <h3 class="font-bold text-lg text-red-500">Are you sure to delete {name} this product</h3>
+                    <h3 class="font-bold text-lg text-red-500">Are you sure to delete {Code} this product</h3>
                     <p class="py-4">if your confirm then press delete button otherwise press cancel</p>
                     <div class="modal-action">
                         <button onClick={() => handleDelete(_id)} className='btn btn-warning'>Confirm Delete</button>
-                        <label for="delete-confirm-modal" class="btn btn-info">Canecl</label>
+                        <label for="admin-delete-confirm-modal" class="btn btn-info">Canecl</label>
                     </div>
                 </div>
             </div>
-        </div >
+        </div>
     );
 };
 
-export default DeleteConfirmModal;
+export default AdminDeleteComfirmModel;

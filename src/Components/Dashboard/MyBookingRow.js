@@ -27,7 +27,7 @@ const MyBookingRow = ({ a, index, refetch, setDeleteProduct }) => {
                 }
             </td>
             <td>
-                <label onClick={() => setDeleteProduct(a)} for="delete-confirm-modal" class="btn btn-xs btn-warning">Cancel Order</label>
+                <label onClick={() => setDeleteProduct(a)} for="delete-confirm-modal" class={a.paid?"btn btn-xs btn-disabled":"btn btn-xs btn-warning"}>Cancel Order</label>
             </td>
         </tr>
     );
