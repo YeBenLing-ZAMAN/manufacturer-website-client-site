@@ -18,8 +18,8 @@ const Navbar = () => {
         <li className='my-2 mx-0 lg:my-0 lg:mx-2 '><NavLink to='/home'>Home</NavLink></li>
         <li className='my-2 mx-0 lg:my-0 lg:mx-2 '><NavLink to='/tools'>Tools</NavLink></li>
         <li className='my-2 mx-0 lg:my-0 lg:mx-2 '><NavLink to='/seereviews'>Reviews</NavLink></li>
-        <li className='my-2 mx-0 lg:my-0 lg:mx-2 '><NavLink to='/contact'>Contact</NavLink></li>
-        <li className='my-2 mx-0 lg:my-0 lg:mx-2 '><NavLink to='/about'>About</NavLink></li>
+        <li className='my-2 mx-0 lg:my-0 lg:mx-2 '><NavLink to='/blogs'>Blogs</NavLink></li>
+        <li className='my-2 mx-0 lg:my-0 lg:mx-2 '><NavLink to='/myprofiledetails'>My Profile</NavLink></li>
 
     </>
     return (

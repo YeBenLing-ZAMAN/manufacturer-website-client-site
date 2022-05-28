@@ -2,8 +2,9 @@ import HomePage from '../Components/HomePage/HomePage';
 import NotFoundPage from '../Components/Shared/NotFoundPage';
 import Login from '../Components/login/Login';
 import Signup from '../Components/login/Signup';
-import ToolDetails from '../Components/Tools/ToolDetails';
 import SeeReview from '../Components/Shared/SeeReview';
+import Blogs from '../Components/Shared/Blogs';
+import MyProfileDeatils from '../Components/Shared/MyProfileDeatils';
 
 
  const PubilcRoutes = [
@@ -12,6 +13,8 @@ import SeeReview from '../Components/Shared/SeeReview';
     { path: "/login", name: "login", Componet: Login },
     { path: "/signup", name: "signup", Componet: Signup },
     { path: "/seereviews", name: "signup", Componet: SeeReview },
+    { path: "/blogs", name: "signup", Componet: Blogs },
+    { path: "/myprofiledetails", name: "signup", Componet: MyProfileDeatils },
     { path: "*", name: "Notfound", Componet: NotFoundPage },
 
 ]
