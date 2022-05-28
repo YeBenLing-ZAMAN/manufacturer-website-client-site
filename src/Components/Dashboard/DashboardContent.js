@@ -32,7 +32,7 @@ const DashboardContent = ({ children }) => {
                     {
                         admin && <>
                             <li className='my-1'><NavLink to='/dashboard/alluser'>All User</NavLink></li>
-                            <li className='my-1'><NavLink to='/dashboard/addservice'>Add service</NavLink></li>
+                            <li className='my-1'><NavLink to='/dashboard/allBookingList'>ALL Booking List</NavLink></li>
                             <li className='my-1'><NavLink to='/dashboard/addproduct'>Add product</NavLink></li>
                             <li className='my-1'><NavLink to='/dashboard/allreview'>All Review</NavLink></li>
                         </>

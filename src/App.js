@@ -17,6 +17,7 @@ import Users from './Components/Dashboard/User';
 import MyProfile from './Components/Dashboard/MyProfile';
 import AllReview from './Components/Dashboard/AllReview';
 import Addproduct from './Components/Dashboard/Addproduct';
+import AllBookingProduct from './Components/Dashboard/AllBookingProduct';
 
 
 
@@ -51,7 +52,7 @@ function App() {
 
         <Route element={<AdminRoute/>}>
           <Route path='/dashboard' element={<Dashboard/>}>
-            <Route path='addservice' element={<Addservice/>}></Route>
+            <Route path='allBookingList' element={<AllBookingProduct/>}></Route>
             <Route path='addproduct' element={<Addproduct/>}></Route>
             <Route path='alluser' element={<Users/>}></Route>
             <Route path='allreview' element={<AllReview/>}></Route>

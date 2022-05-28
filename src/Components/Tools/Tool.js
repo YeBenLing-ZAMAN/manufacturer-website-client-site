@@ -17,7 +17,7 @@ const Tool = ({ tool, refetch }) => {
                 <hr />
                 <hr />
                 <p>Availability: {quantity} prices</p>
-                <p>Minimun Quantity of oder: {min_quantity} prices</p>
+                <p>Minimun Quantity of order: {min_quantity} prices</p>
                 <hr />
                 <p>price: {price}/perPrices</p>
                 <Link to={`/tool/${_id}`} className='btn btn-primary'>details</Link>

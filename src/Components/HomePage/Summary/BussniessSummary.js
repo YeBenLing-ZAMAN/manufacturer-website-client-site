@@ -2,7 +2,8 @@ import React from 'react';
 import BussniessPart from './BussniessPart';
 import project from '../../../images/bussinessIcon/icons8-project-64.png';     
 import client from '../../../images/bussinessIcon/icons8-client-64.png';     
-import country from '../../../images/bussinessIcon/icons8-country-64.png';     
+import country from '../../../images/bussinessIcon/icons8-country-64.png'; 
+import contactUsIcone from '../../../images/bussinessIcon/contactusicons.png';    
 
 const BussniessSummary = () => {
     return (
@@ -15,7 +16,7 @@ const BussniessSummary = () => {
             <BussniessPart cardTitle="All Over World!" cardBody="you can order anywhere" bgClass="font-bold bg-gradient-to-r from-red-500 to-yellow-500" img={country}></BussniessPart>
             <BussniessPart cardTitle="20k Client" cardBody="client satisfaction is must" bgClass="bg-gradient-to-r from-red-500 to-yellow-500 " img={client}></BussniessPart>
             <BussniessPart cardTitle="3k" cardBody="font-bold Large project handle" bgClass="font-bold bg-gradient-to-r from-red-500 to-yellow-500" img={project}></BussniessPart>
-            <BussniessPart cardTitle="Contact Us" cardBody="if you have any qustion please submit form blow" bgClass="font-bold bg-gradient-to-r from-red-500 to-yellow-500" img={project}></BussniessPart>
+            <BussniessPart cardTitle="Contact Us" cardBody="if you have any qustion please submit form blow" bgClass="font-bold bg-gradient-to-r from-red-500 to-yellow-500" img={contactUsIcone}></BussniessPart>
         </div>
         </>
     );
