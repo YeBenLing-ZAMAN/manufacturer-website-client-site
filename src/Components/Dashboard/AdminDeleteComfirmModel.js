@@ -35,7 +35,7 @@ const AdminDeleteComfirmModel = ({ deletProduct, setDeleteProduct, refetch }) =>
                     <p class="py-4">if your confirm then press delete button otherwise press cancel</p>
                     <div class="modal-action">
                         <button onClick={() => handleDelete(_id)} className='btn btn-warning'>Confirm Delete</button>
-                        <label for="admin-delete-confirm-modal" class="btn btn-info">Canecl</label>
+                        <label for="admin-delete-confirm-modal" class="btn btn-error">Canecl</label>
                     </div>
                 </div>
             </div>
