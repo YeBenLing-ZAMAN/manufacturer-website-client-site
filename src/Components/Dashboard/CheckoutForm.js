@@ -33,7 +33,7 @@ const CheckoutForm = ({ item }) => {
         .then(data=>{
             if(data?.clientSecret){
                 setClientSecret(data.clientSecret);
-                console.log('i am here :',data.clientSecret )
+                 // console.log('i am here :',data.clientSecret )
             }
         })
     },[])
@@ -48,7 +48,7 @@ const CheckoutForm = ({ item }) => {
         const card = elements.getElement(CardElement);
 
         if(card === null){
-            // console.log('i am load');
+            //  // console.log('i am load');
             return;
         }
 
@@ -83,11 +83,11 @@ const CheckoutForm = ({ item }) => {
         if(intentError){
             setProcessing(false);
             setCardError(intentError.message);
-            console.log('i am here now')
+             // console.log('i am here now')
         }else{
             setCardError('');
             setTransactionId(paymentIntent.id);
-            // console.log(paymentIntent);
+            //  // console.log(paymentIntent);
             setSuccess('Congrats! Your payment is completed');
 
             // store payment is database 
@@ -106,7 +106,7 @@ const CheckoutForm = ({ item }) => {
                 body: JSON.stringify(payment)
             }).then(res => res.json()).then(data => {
                 setProcessing(false);
-                console.log(data)
+                 // console.log(data)
             })
 
         }
@@ -114,7 +114,7 @@ const CheckoutForm = ({ item }) => {
 
     }
 
-    // console.log(cardError);
+    //  // console.log(cardError);
     
 
     return (

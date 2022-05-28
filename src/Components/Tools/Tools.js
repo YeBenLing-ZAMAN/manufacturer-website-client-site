@@ -14,7 +14,7 @@ const Tools = () => {
     //         .then((res) => res.json())
     //         .then(data => {
     //             setTools(data)
-    //             console.log(data);
+    //              // console.log(data);
     //             setLoading(false);
     //         })
     // }, [])

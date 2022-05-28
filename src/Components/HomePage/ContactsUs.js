@@ -7,7 +7,7 @@ const ContactsUs = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
     const onSubmit = async data => {
-        console.log(data);
+         // console.log(data);
     }
 
 

@@ -8,10 +8,10 @@ import Loading from '../Shared/Loading';
 const DashboardContent = ({ children }) => {
     const [user, loading] = useAuthState(auth);
     const [admin] = useAdmin(user);
-    if(loading){
-        return <Loading/>
+    if (loading) {
+        return <Loading />
     }
-    console.log(admin);
+     // console.log(admin);
     return (
         <div class="drawer drawer-mobile">
             <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
@@ -30,9 +30,13 @@ const DashboardContent = ({ children }) => {
                 <label for="my-drawer-2" class="drawer-overlay"></label>
                 <ul className="menu p-4 overflow-y-auto w-48 bg-base-200 text-base-content ">
                     {/* <!-- Sidebar content here --> */}
-                    <li className='my-1'><NavLink to='/dashboard/mybooking'>My Booking</NavLink></li>
-                    <li className='my-1'><NavLink to='/dashboard/addreview'>My Review</NavLink></li>
-                    <li className='my-1'><NavLink to='/dashboard/myprofile'>My profile</NavLink></li>
+                    {
+                        !admin && <>
+                            <li className='my-1'><NavLink to='/dashboard/mybooking'>My Booking</NavLink></li>
+                            <li className='my-1'><NavLink to='/dashboard/addreview'>My Review</NavLink></li>
+                            <li className='my-1'><NavLink to='/dashboard/myprofile'>My profile</NavLink></li>
+                        </>
+                    }
                     {
                         admin && <>
                             <li className='my-1'><NavLink to='/dashboard/alluser'>All User</NavLink></li>

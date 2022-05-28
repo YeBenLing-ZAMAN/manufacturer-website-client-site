@@ -11,7 +11,7 @@ const Addservice = () => {
 
     const onSubmit = async data => {
 
-         //console.log(data);
+         // // console.log(data);
         const image = data.image[0];
         const formData = new FormData();
         formData.append('image', image);
@@ -30,10 +30,10 @@ const Addservice = () => {
                         specialty: data.Specialty,
                         img: img
                     }
-                    console.log("doctor object ", doctor);
+                     // console.log("doctor object ", doctor);
 
                 }
-                console.log("result : ", result);
+                 // console.log("result : ", result);
             })
 
     }

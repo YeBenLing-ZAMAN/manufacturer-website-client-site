@@ -13,7 +13,7 @@ const MyBooking = () => {
     // const [products, setProducts] = useState([]);\
     const [deletProduct, setDeleteProduct] = useState(null);
     const navigate = useNavigate();
-    console.log(user);
+     // console.log(user);
     const email = user.email;
     /*   useEffect(() => {
           async function fetchMyAPI() {
@@ -26,12 +26,12 @@ const MyBooking = () => {
                       }
                   })
                       .then(res => {
-                          console.log("res", res);
+                           // console.log("res", res);
                           if (res.status === 401 || res.status === 403) {
                               signOut(auth);
                               localStorage.removeItem('accesstoken');
                               navigate('/');
-                              console.log("problem found");
+                               // console.log("problem found");
                           } else if (res.status)
                               return res.json()
                       })
@@ -47,12 +47,12 @@ const MyBooking = () => {
             authorization: `Bearer ${localStorage.getItem('accesstoken')}`
         }
     }).then(res => {
-        console.log("res", res);
+         // console.log("res", res);
         if (res.status === 401 || res.status === 403) {
             signOut(auth);
             localStorage.removeItem('accesstoken');
             navigate('/');
-            console.log("problem found");
+             // console.log("problem found");
         } else if (res.status)
             return res.json()
     }));
@@ -61,7 +61,7 @@ const MyBooking = () => {
         return <Loading />
     }
 
-    console.log(products);
+     // console.log(products);
 
     return (
         <div>

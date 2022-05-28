@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 const AdminDeliveryProductConfirmModel = ({ setDeliveryProduct, deliveryProduct, refetch }) => {
 
 
-    console.log(deliveryProduct);
+     // console.log(deliveryProduct);
     const { product, _id, useremail, quantity } = deliveryProduct;
     const { Code, price } = product;
 

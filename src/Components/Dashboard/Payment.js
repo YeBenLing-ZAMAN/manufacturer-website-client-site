@@ -24,7 +24,7 @@ const Payment = () => {
         return <Loading />
     }
 
-    console.log(item);
+     // console.log(item);
     const QuantityOfProduct= parseFloat(item?.quantity);
     const priceOfProduct= parseFloat(item?.product?.price);
 

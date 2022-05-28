@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Tool = ({ tool, refetch }) => {
-    console.log(tool)
+     // console.log(tool)
      const {  Code, brand, details, image,min_quantity,name,price,quantity,_id } = tool;
     return (
         <div className='w-96 bg-base-100 shadow-xl'>

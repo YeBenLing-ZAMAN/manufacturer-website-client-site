@@ -10,7 +10,7 @@ const AllReview = () => {
 
 
     const onDeletebutton =(id)=>{
-        console.log('delete',id);
+         // console.log('delete',id);
         fetch(`http://localhost:5000/review/${id}`, {
             method: 'DELETE',
             headers: {
@@ -19,7 +19,7 @@ const AllReview = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                 // console.log(data);
                 if (data.deletedCount) {
                     toast.success(`review is deleted.`);
                     refetch();

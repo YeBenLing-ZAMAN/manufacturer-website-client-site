@@ -9,17 +9,17 @@ import ReviewDashboard from '../Shared/ReviewDashboard';
 
 const AddReview = () => {
     const [user, loading, error] = useAuthState(auth);
-    console.log(user);
+     // console.log(user);
     const { register, handleSubmit } = useForm();
 
     
     const { data: reviews, isLoading , refetch} = useQuery('review', () => fetch(` http://localhost:5000/review?email=${user.email}`).then(res => res.json()));
 
-    // console.log(reviews);
+    //  // console.log(reviews);
 
     const onSubmit = async data => {
-        console.log(data);
-        //console.log(booking);
+         // console.log(data);
+        // // console.log(booking);
         fetch('http://localhost:5000/addreview', {
             method: 'POST',
             headers: {
@@ -30,14 +30,14 @@ const AddReview = () => {
             .then(res => res.json())
             .then(data => {
 
-                console.log(data);
+                 // console.log(data);
 
                 if (data.success) {
                     toast(`your review is added`);
                     refetch();
                 } else {
                     toast.error(`some thing review is not added`)
-                    console.log()
+                     // console.log()
                 }
             })
     }

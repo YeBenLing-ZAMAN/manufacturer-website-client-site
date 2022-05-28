@@ -31,14 +31,14 @@ const Login = () => {
 
     // useEffect(() => {
     //     if (gUser || user) {
-    //         // console.log('user', user);
+    //         //  // console.log('user', user);
     //         navigate(from, { replace: true });
     //     }
     // }, [gUser, user, navigate])
 
     useEffect(() => {
         if (token) {
-            // console.log('user', user);
+            //  // console.log('user', user);
             navigate(from, { replace: true });
         }
     }, [token, from, navigate])
@@ -50,7 +50,7 @@ const Login = () => {
     }
 
     const onSubmit = async data => {
-        //console.log(data);
+        // // console.log(data);
         await signInWithEmailAndPassword(data.email, data.password);
     }
 

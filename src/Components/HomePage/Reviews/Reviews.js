@@ -42,7 +42,7 @@ const Reviews = () => {
     //     },
     // ]
 
-    console.log(reviews);
+     // console.log(reviews);
     return (
         <section className='my-28 p-10'>
             <div className='flex justify-around items-center'>

@@ -23,7 +23,7 @@ const AllBookingProduct = () => {
     }
 
 
-    // console.log(allbookinglists);
+    //  // console.log(allbookinglists);
     return (
         <div>
             <h2 className='text-xl text-right px-5 py-2'>Total Order Submited : {allbookinglists?.length}</h2>

@@ -4,19 +4,19 @@ import { toast } from 'react-toastify';
 
 const Addproduct = () => {
     const [imageURL, setImageURL] = useState("");
-    // console.log(imageURL);
+    //  // console.log(imageURL);
     const [loading, setLoading] = useState(false);
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
 
     const onSubmit = async data => {
-        console.log(data);
+         // console.log(data);
         const productData = {
             ...data,
             image: imageURL,
         }
 
-        console.log('product-data', productData);
+         // console.log('product-data', productData);
 
 
         /* post request ta handle  korte hobe  */
@@ -37,7 +37,7 @@ const Addproduct = () => {
                 } else {
                     toast.error("Failed to Add product");
                 }
-                console.log("productDetails : ", inserted)
+                 // console.log("productDetails : ", inserted)
             })
 
     }
@@ -47,7 +47,7 @@ const Addproduct = () => {
     /* image upload handle */
     const handleUploadImage = event => {
         setLoading(true);
-        console.log(event.target.files[0]);
+         // console.log(event.target.files[0]);
         const image = event.target.files[0];
         const formData = new FormData();
 
@@ -60,13 +60,13 @@ const Addproduct = () => {
         })
             .then(res => res.json())
             .then(data => {
-                //console.log(data);
-                console.log('hardcodeurl', data.data.display_url);
+                // // console.log(data);
+                 // console.log('hardcodeurl', data.data.display_url);
                 setImageURL(data.data.display_url);
                 setLoading(false);
 
             }).catch((error) => {
-                console.log(error);
+                 // console.log(error);
                 toast.error(`some thing is wrong, so image isn't store is DB`)
             })
     }

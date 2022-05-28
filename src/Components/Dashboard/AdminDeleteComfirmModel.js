@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 
 const AdminDeleteComfirmModel = ({ deletProduct, setDeleteProduct, refetch }) => {
 
-    console.log(deletProduct);
+     // console.log(deletProduct);
     const { product, _id } = deletProduct;
     const { name, Code } = product;
 
@@ -16,7 +16,7 @@ const AdminDeleteComfirmModel = ({ deletProduct, setDeleteProduct, refetch }) =>
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                 // console.log(data);
                 if (data.deletedCount) {
                     toast.success(`order of ${name} is deleted`);
                     refetch();

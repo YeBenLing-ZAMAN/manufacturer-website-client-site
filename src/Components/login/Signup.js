@@ -24,16 +24,16 @@ const Signup = () => {
     const [token] = useToken(user || gUser);
 
     const onSubmit = async data => {
-        // console.log(data);
+        //  // console.log(data);
         await createUserWithEmailAndPassword(data.email, data.password)
         await updateProfile({ displayName: data.name });
-        console.log("update done", user);
+         // console.log("update done", user);
 
     }
     
     useEffect(() => {
         if (token) {
-            // console.log('user', user);
+            //  // console.log('user', user);
             navigate(from, { replace: true });
         }
     }, [token, from, navigate])

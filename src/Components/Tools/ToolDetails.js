@@ -13,7 +13,7 @@ const ToolDetails = () => {
     // const [loading, setLoading] = useState(false);
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const [user, loading] = useAuthState(auth);
-    //console.log(toolDetails)
+    // // console.log(toolDetails)
 
     const url = `http://localhost:5000/tool/${id}`;
 
@@ -33,8 +33,8 @@ const ToolDetails = () => {
     }
 
     const onSubmit = async data => {
-        console.log(data.quantity);
-        console.log(toolDetails?.min_quantity);
+         // console.log(data.quantity);
+         // console.log(toolDetails?.min_quantity);
 
         if (parseInt(data.quantity) >= parseInt(toolDetails?.min_quantity) && parseInt(data.quantity) <= parseInt(toolDetails?.quantity)) {
             const booking = {
@@ -45,11 +45,11 @@ const ToolDetails = () => {
             }
             const availabeQuantity = parseInt(toolDetails?.quantity);
             const orderQuantity = parseInt(data?.quantity);
-            console.log("order quantity", orderQuantity);
-            console.log("avaiable quantity", availabeQuantity);
+             // console.log("order quantity", orderQuantity);
+             // console.log("avaiable quantity", availabeQuantity);
             const updateQuantity = (availabeQuantity - orderQuantity).toString();
 
-            //console.log(booking);
+            // // console.log(booking);
             fetch(' http://localhost:5000/booking', {
                 method: 'POST',
                 headers: {
@@ -61,10 +61,10 @@ const ToolDetails = () => {
                 .then(res => res.json())
                 .then(data => {
 
-                    console.log(data);
+                     // console.log(data);
 
-                    console.log(updateQuantity);
-                    console.log(typeof (updateQuantity));
+                     // console.log(updateQuantity);
+                     // console.log(typeof (updateQuantity));
                     const UQ = {
                         quantity: updateQuantity
                     }
@@ -81,13 +81,13 @@ const ToolDetails = () => {
                             body: JSON.stringify(UQ)
                         }).then(res => res.json()).then(data => {
                             // setProcessing(false);
-                            console.log('update', data)
+                             // console.log('update', data)
                             refetch();
                         })
 
                     } else {
                         toast.error(`some thing is wrong try again letter`);
-                        console.log();
+                         // console.log();
                     }
                 })
         } else if (parseInt(data.quantity) > parseInt(toolDetails?.quantity)) {
