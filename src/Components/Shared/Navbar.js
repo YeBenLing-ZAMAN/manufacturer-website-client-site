@@ -4,10 +4,11 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { signOut } from 'firebase/auth';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import Loading from './Loading';
 
 const Navbar = () => {
     const navigate = useNavigate();
-    const [user] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
     const logout = () => {
         signOut(auth);
         navigate('/');
@@ -22,6 +23,10 @@ const Navbar = () => {
         <li className='my-2 mx-0 lg:my-0 lg:mx-2 '><NavLink to='/myprofiledetails'>My Profile</NavLink></li>
 
     </>
+
+    if(loading){
+        return <Loading/>
+    }
     return (
         <div className="navbar bg-base-100 sticky top-0 z-10">
             <div className="navbar-start">

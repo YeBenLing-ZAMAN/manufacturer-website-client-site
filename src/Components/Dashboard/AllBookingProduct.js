@@ -23,7 +23,7 @@ const AllBookingProduct = () => {
     // console.log(allbookinglists);
     return (
         <div>
-        <h2 className='text-xl text-right px-5 py-2'>Your Total  submited : {allbookinglists?.length}</h2>
+        <h2 className='text-xl text-right px-5 py-2'>Total Order Submited : {allbookinglists?.length}</h2>
         <div class="overflow-x-auto p-3">
             <table class="table w-full">
                 {/* <!-- head --> */}

@@ -73,7 +73,7 @@ const Addproduct = () => {
 
     return (
         <div >
-            <h1 className='text-3xl text-center my-3'>Add product on your service list</h1>
+            <h1 className='text-3xl text-center my-3'>Add product on your Tools list</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
 
                 <div className='grid grid-cols-1 lg:grid-cols-2 justify-center items-start'>

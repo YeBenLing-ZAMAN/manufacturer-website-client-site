@@ -9,7 +9,7 @@ import Loading from '../Shared/Loading';
 import DeleteConfirmModal from './DeleteConfirmModal';
 
 const MyBooking = () => {
-    const [user] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
     // const [products, setProducts] = useState([]);\
     const [deletProduct, setDeleteProduct] = useState(null);
     const navigate = useNavigate();
@@ -57,7 +57,7 @@ const MyBooking = () => {
             return res.json()
     }));
 
-    if (isLoading) {
+    if (isLoading || loading) {
         return <Loading />
     }
 

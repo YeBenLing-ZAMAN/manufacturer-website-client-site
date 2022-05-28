@@ -10,9 +10,9 @@ import Loading from '../Shared/Loading';
 const ToolDetails = () => {
     const { id } = useParams();
     // const [toolDetails, setDetails] = useState([]);
-    const [loading, setLoading] = useState(false);
+    // const [loading, setLoading] = useState(false);
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
-    const [user] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
     //console.log(toolDetails)
 
     const url = `http://localhost:5000/tool/${id}`;
@@ -28,7 +28,7 @@ const ToolDetails = () => {
     const { data: toolDetails, isLoading, refetch } = useQuery('toolDetails', () => fetch(url).then(res => res.json()));
     // const { Code, brand, details, image, min_quantity, name, price, quantity, _id } = toolDetails;
 
-    if (isLoading) {
+    if (isLoading ||loading) {
         return <Loading />
     }
 
