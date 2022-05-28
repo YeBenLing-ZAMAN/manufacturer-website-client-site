@@ -34,7 +34,7 @@ const AllReview = () => {
     return (
         <div>
             <div className='mt-5 lg:mt-0'>
-                <h1 className='text-2xl font-bold mb-2 mx-auto text-center'>Your privous comment</h1>
+                <h1 className='text-2xl font-bold mb-2 mx-auto text-center'>All Comment List</h1>
                 <div className='p-4'>
                 {
                     reviews?.map((r,index)=> <AllReviewCard key={r._id} onDeletebutton={onDeletebutton} index={index} r={r}></AllReviewCard>)

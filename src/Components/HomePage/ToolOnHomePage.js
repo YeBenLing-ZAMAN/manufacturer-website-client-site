@@ -16,9 +16,9 @@ const ToolOnHomePage = () => {
             <div className='text-center my-10'>
                 <h1 className='text-4xl mb-4'>our Products</h1>
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3 justify-items-center px-3'>
+            <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-3 justify-items-center px-3'>
                 {
-                    tools?.slice(0, 4).map(tool => <Tool refetch={refetch} key={tool.id} tool={tool} ></Tool>)
+                    tools?.slice(0, 4).map((tool,index) => <Tool refetch={refetch} key={index} tool={tool} ></Tool>)
                 }
             </div>
             <div className='text-center my-10'>

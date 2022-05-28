@@ -54,7 +54,7 @@ const Navbar = () => {
                     <label tabindex="0" class="btn m-1">{user?.displayName?.split(" ")[0]} </label>
                     <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
                         <li className='my-1'><NavLink to='dashboard'>Dash Board</NavLink></li>
-                        <li className='my-1'><Link to='useprofile'>Your profile</Link></li>
+                        <li className='my-1'><Link to='/dashboard/myprofile'>Your profile</Link></li>
                         <li className='my-1'><button onClick={logout} className="btn btn-outline btn-primary">Sign Out</button></li>
 
                     </ul>

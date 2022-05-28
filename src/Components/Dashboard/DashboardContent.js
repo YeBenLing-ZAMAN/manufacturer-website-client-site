@@ -43,6 +43,7 @@ const DashboardContent = ({ children }) => {
                             <li className='my-1'><NavLink to='/dashboard/allBookingList'>ALL Booking List</NavLink></li>
                             <li className='my-1'><NavLink to='/dashboard/addproduct'>Add product</NavLink></li>
                             <li className='my-1'><NavLink to='/dashboard/allreview'>All Review</NavLink></li>
+                            <li className='my-1'><NavLink to='/dashboard/myprofile'>My profile</NavLink></li>
                         </>
                     }
 

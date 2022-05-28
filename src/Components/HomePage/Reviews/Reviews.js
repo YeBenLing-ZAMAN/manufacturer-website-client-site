@@ -57,7 +57,7 @@ const Reviews = () => {
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                 {
-                    reviews?.slice(0, 3).map(review => <ReviewCard key={review.id} review={review}></ReviewCard>)
+                    reviews?.slice(0, 3).map((review,index) => <ReviewCard key={index} review={review}></ReviewCard>)
                 }
             </div>
             <div className='text-center my-10'>
