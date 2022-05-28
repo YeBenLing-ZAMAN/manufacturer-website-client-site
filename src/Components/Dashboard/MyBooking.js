@@ -73,7 +73,7 @@ const MyBooking = () => {
                         <tr>
                             <th></th>
                             <th>Name</th>
-                            <th>price</th>
+                            <th>apiece</th>
                             <th>Quantity</th>
                             <th>Total Price</th>
                             <th>Payment</th>

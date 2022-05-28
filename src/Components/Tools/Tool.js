@@ -16,10 +16,10 @@ const Tool = ({ tool, refetch }) => {
                 <p>product code: { Code}</p>
                 <hr />
                 <hr />
-                <p>Availability: {quantity} prices</p>
-                <p>Minimun Quantity of order: {min_quantity} prices</p>
+                <p>Availability: {quantity} piece</p>
+                <p>Minimun Quantity of order: {min_quantity} apiece</p>
                 <hr />
-                <p>price: {price}/perPrices</p>
+                <p>price: {price}/perApiece</p>
                 <Link to={`/tool/${_id}`} className='btn btn-primary'>details</Link>
             </div>
         </div>

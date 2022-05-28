@@ -5,14 +5,18 @@ import { toast } from 'react-toastify';
 const MyBookingRow = ({ a, index, refetch, setDeleteProduct }) => {
     const { product, quantity, _id } = a;
     const { name, price } = product;
+    const QuantityOfProduct= parseFloat(quantity);
+    const priceOfProduct= parseFloat(price);
+
+    const totalPrice= (QuantityOfProduct * priceOfProduct).toFixed(2);
 
     return (
         <tr>
             <th>{index + 1}</th>
             <td>{name}</td>
-            <td>{price}</td>
-            <td>{quantity}</td>
-            <td>dite hhobe</td>
+            <td>$ {price}</td>
+            <td>{quantity}/piece</td>
+            <td>$ {totalPrice}</td>
             <td>
                 {(a.price && !a.paid) || <Link to={`/dashboard/payment/${a._id}`}><button className='btn btn-xs btn-success'>pay</button></Link>}
                 {
