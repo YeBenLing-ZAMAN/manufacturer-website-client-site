@@ -18,9 +18,9 @@ const MyBookingRow = ({ a, index, refetch, setDeleteProduct }) => {
             <td>{quantity}/piece</td>
             <td>$ {totalPrice}</td>
             <td>
-                {(a.price && !a.paid) || <Link to={`/dashboard/payment/${a._id}`}><button className='btn btn-xs btn-success'>pay</button></Link>}
+                {(!a.paid) && <Link to={`/dashboard/payment/${a._id}`}><button className='btn btn-xs btn-success'>pay</button></Link>}
                 {
-                    (a.price && a.paid) && <div>
+                    (a.paid) && <div>
                         <p> <span className='text-red-500'>paid</span></p>
                         <p className='text-green-500'>Transaction ID: <span>{a.transactionId}</span></p>
                     </div>

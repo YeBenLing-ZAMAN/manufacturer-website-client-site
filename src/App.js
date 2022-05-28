@@ -18,6 +18,7 @@ import MyProfile from './Components/Dashboard/MyProfile';
 import AllReview from './Components/Dashboard/AllReview';
 import Addproduct from './Components/Dashboard/Addproduct';
 import AllBookingProduct from './Components/Dashboard/AllBookingProduct';
+import Payment from './Components/Dashboard/Payment';
 
 
 
@@ -47,6 +48,7 @@ function App() {
             <Route path='mybooking' element={<MyBooking/>}></Route>
             <Route path='addreview' element={<AddReview/>}></Route>
             <Route path='myprofile' element={<MyProfile/>}></Route>
+            <Route path='payment/:_id' element={<Payment/>}></Route>
           </Route>
         </Route>
 

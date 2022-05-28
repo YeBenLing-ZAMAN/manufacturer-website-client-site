@@ -32,7 +32,7 @@ const UserRow = ({ user , refetch, index}) => {
               role === "admin"  ?<td>{email}<sup className='text-red-500'>Admin</sup></td> :<td>{email}</td>
             }
             <td>{role !== "admin" && <button  onClick={makeAdmin} class="btn btn-xs"> Admin</button>}</td>
-            <td><button class="btn btn-xs">Remove</button></td>
+            {/* <td><button class="btn btn-xs">Remove</button></td> */}
         </tr>
     );
 };

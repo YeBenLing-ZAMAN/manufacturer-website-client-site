@@ -27,7 +27,7 @@ const Users = () => {
                             <th></th>
                             <th>Name</th>
                             <th>Make Admin</th>
-                            <th>Remove User</th>
+                            {/* <th>Remove User</th> */}
                         </tr>
                     </thead>
                     <tbody>
