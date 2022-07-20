@@ -2,6 +2,11 @@
 
 Build a best distubteing system over the earth! 
 
+## admin credentials
+- admin : admin@admin.com
+- password: 123456
+##
+
 ## Features
 - home page
 - Our services
